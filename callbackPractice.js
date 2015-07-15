@@ -7,10 +7,8 @@ Below is a sample problem
       alert(thingToSay);
    });
    
-
 and what you should write is the favNum function that makes the code above work, 
-    
-    
+     
    var sayHi = function(str, cb){
     cb(str);
    }
@@ -22,57 +20,53 @@ and what you should write is the favNum function that makes the code above work,
     
 */
 
-
-
-  //Code Here for first
+//Problem 1
+//First names
+  
+var first = function(a, b) {
+  b(a[0]);
+}
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
   console.log('The first name in names is ', firstName)
 });
 
+//Problem 2
+//Last names
 
-
-/* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
-
-
-
-
-  //Code Here for last
+var last = function(a, b) {
+  b(a[a.length -1]);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
   console.log('The last name in names is ', lastName);
 });
 
+//Problem 3
+//Multiply
 
-
-
-
-/* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
-
-
-
-
-
-
-  //Code Here for multiply
+var multiply = function(a, b, c) {
+  c(a * b);
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
 })
 
+//Problem 4
+//Contains
 
-
-
-
-/* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
-
-
-
-
-
-  //Code Here for contains
+var contains = function(a, b, c) {
+  var flag = false;
+  for (var i = 0; i < a.length; i++) {
+    if (a[i] === b) {
+      flag = true;
+    }
+  }
+  c(flag);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -83,49 +77,50 @@ contains(names, 'Colt', function(result){
   }
 });
 
+//Problem 5
+//Uniq
 
-
-
-
-/* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
-
-
-
-
-    //Code Here for uniq
+var uniq = function(a, b) {
+  for (var i = 0; i < a.length; i++) {
+    for (var j = i + 1; j < a.length; j++) {
+      if (a[i] === a[j]) {
+        a.splice(j, 1);
+        i--;
+      }
+    }
+  }
+  b(a);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
 
+//Problem 6
+//Each
 
-
-
-
-/* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
-
-
-
-
-    //Code Here for each
+var each = function(a, b) {
+  for(var i = 0; i < a.length; i++) {
+    b(a[i], i);
+  }
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
 });
 
+//Problem 7
+//getUserById
 
-
-
-
-/* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
-
-
-
-
-
- //code here for getUserById
+var getUserById = function(a, b, c) {
+  for (var i = 0; i < a.length; i++) {
+    if (a[i]["id"] === b) {
+      return c(a[i]);
+    }
+  }
+}
 
 var users = [
   {
